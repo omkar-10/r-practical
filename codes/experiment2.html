@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experiment 2 – Use Sqoop to Transfer Data Between Hadoop and MySQL</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+# Experiment 2 – Use Sqoop to Transfer Data Between Hadoop and MySQL
+
+## 1. Verify MySQL Connection:
+mysql -u root -p
+# then type password (default: root)
+show databases;
+use testdb;
+show tables;
+
+## 2. Import Table from MySQL → HDFS:
+sqoop import \
+--connect jdbc:mysql://localhost/testdb \
+--username root --password root \
+--table employees \
+--target-dir /user/hadoop/employees_data \
+--m 1
+
+# Explanation:
+# --m 1 → single mapper for simple import
+# --target-dir → where to save in HDFS
+
+## 3. Import with Condition:
+sqoop import \
+--connect jdbc:mysql://localhost/testdb \
+--username root --password root \
+--table employees \
+--where "salary > 50000" \
+--target-dir /user/hadoop/highsalary
+
+## 4. Export HDFS Data → MySQL:
+sqoop export \
+--connect jdbc:mysql://localhost/testdb \
+--username root --password root \
+--table employees_backup \
+--export-dir /user/hadoop/employees_data \
+--input-fields-terminated-by ','
+
+## TIPS:
+# Check imported data:
+hdfs dfs -ls /user/hadoop/employees_data
+    </pre>
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>

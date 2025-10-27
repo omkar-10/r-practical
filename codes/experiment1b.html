@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experiment 1b – Execute Hadoop HDFS Commands</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+# Experiment 1b – Execute Hadoop HDFS Commands
+
+## Check Hadoop version
+hadoop version
+
+## List root directory contents
+hdfs dfs -ls /
+
+## Create a new directory
+hdfs dfs -mkdir /input
+
+## Copy file from local to HDFS
+hdfs dfs -copyFromLocal /home/cloudera/Desktop/sample.txt /input
+
+## OR (alternative)
+hdfs dfs -put /home/cloudera/Desktop/sample.txt /input
+
+## Display file contents
+hdfs dfs -cat /input/sample.txt
+
+## Copy file back from HDFS to local
+hdfs dfs -copyToLocal /input/sample.txt /home/cloudera/Desktop/
+
+## OR
+hdfs dfs -get /input/sample.txt /home/cloudera/Desktop/
+
+## Move file to another directory
+hdfs dfs -mv /input/sample.txt /output/
+
+## Copy file to another directory
+hdfs dfs -cp /output/sample.txt /backup/
+
+## Remove file
+hdfs dfs -rm /backup/sample.txt
+
+## Remove directory
+hdfs dfs -rmdir /backup
+
+## TIPS:
+# Use hdfs dfs -help for quick command descriptions
+    </pre>
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>
