@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code X</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+data(airquality)
+
+# Get the first 10 'mpg' values
+mpg_values <- head(mtcars$mpg, 10)
+barplot(
+mpg_values,
+main = "First 10 Miles Per Gallon Values",
+xlab = "MPG Levels",
+col = 'green',
+horiz = FALSE # Vertical bars
+)
+
+
+hist(
+mtcars$hp,
+main = "Distribution of Horsepower",
+xlab = "Horsepower (hp)",
+xlim = c(50, 350), # Custom range for x-axis
+col = "purple",
+freq = TRUE
+)
+
+
+boxplot(
+mtcars$disp,
+main = "Engine Displacement Distribution",
+xlab = "Cubic Inches (in^3)",
+col = "orange",
+border = "darkgreen",
+horizontal = TRUE, # Horizontal plot
+notch = TRUE # Adds a notch to show the confidence interval around the median
+)
+  </pre
+    >
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>

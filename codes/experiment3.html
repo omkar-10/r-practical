@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code X</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+Switch
+use studentDB
+
+Insert 
+db.student.insertOne({name: "Jod", age: 21, course: "AI"})
+db.student.insertMany([
+  {name: "Shaun", age: 21, course: "AOA"},
+  {name: "Sam", age: 21, course: "ML"}
+])
+
+Find
+db.student.find()
+db.student.findOne({ name: "Jod"})
+db.student.find({ age: 21})
+
+Update
+db.student.updateOne(
+  { name: "Jod"},
+  { $set: {age: 30}}  
+)
+db.student.updateMany(
+  {},
+  {$set: {age: 30}}
+)
+
+Delete
+db.student.deleteOne({ name: "Sam"})
+db.student.deleteMany({name: "Jod"})
+  </pre
+    >
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>

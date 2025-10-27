@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code X</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+install.packages("igraph")
+library(igraph)
+
+g <- make_ring(10) %du% make_ring(10) %du% make_full_graph(5)
+g <- add_edges(g, c(1,11, 5,15, 10,20))
+
+#plot graph
+plot(g)
+
+community <- cluster_louvain(g)
+plot(community,g)
+
+walktrap_comm <- cluster_walktrap(g)
+plot(walktrap_comm, g)
+  </pre
+    >
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>

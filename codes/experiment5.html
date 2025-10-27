@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code X</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+def flajolet_martin(data):
+    max_zero = 0  # biggest number of zeros seen at the end
+
+    for item in data:
+        # make a random-looking number using Python's hash()
+        h = abs(hash(item))  # abs() makes sure it's positive
+
+        # change number to binary (0s and 1s)
+        b = bin(h)[2:]  # remove the "0b" part at the start
+
+        # count zeros at the end of binary number
+        zeros = 0
+        for bit in reversed(b):
+            if bit == '0':
+                zeros += 1
+            else:
+                break
+
+        # keep the biggest zero count
+        if zeros > max_zero:
+            max_zero = zeros
+
+    # estimate = 2 ^ (biggest zeros found)
+    return 2 ** max_zero
+
+
+# ---- User Input ----
+data = []
+print("Enter words or numbers (type 'done' to stop):")
+
+while True:
+    x = input("> ").strip()
+    if x.lower() == "done":
+        break
+    data.append(x)
+
+# ---- Result ----
+if data:
+    print("\nEstimated distinct elements:", flajolet_martin(data))
+    print("Actual distinct elements:", len(set(data)))
+else:
+    print("No data entered.")
+  </pre
+    >
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>
