@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experiment 8 – PySpark Data Visualization</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+# Experiment 8 – PySpark Data Visualization using DataFrame
+!pip install pyspark
+!pip install -q findspark
+
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.appName("PySpark Data Visualization").master("local[*]").getOrCreate()
+!wget https://jacobcelestine.com/knowledge_repo/colab_and_pyspark/cars.csv
+df = spark.read.csv("cars.csv", header=True, sep=";")
+df.show(5, truncate=False)
+df.printSchema()
+from pyspark.sql.functions import col
+print("TOTAL RECORD COUNT:", df.count())
+print("EUROPE FILTERED RECORD COUNT:", df.filter(col("Origin")=="Europe").count())
+df.filter(col("Origin")=="Europe").show(truncate=False)
+df.orderBy("Cylinders").show(truncate=False)
+  </pre
+    >
+
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>
