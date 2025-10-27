@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code X</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+emp_id <- c(1:5) 
+emp_name <- c("Rick", "Dan", "Michelle", "Ryan", "Gary") 
+start_date <- c("2012-01-01", "2013-09-23", "2014-11-15", 
+"2014-05-11", "2015-03-27") 
+salary <- c(60000, 45000, 75000, 84000, 20000) 
+employees <- data.frame(emp_id, emp_name, start_date, salary) 
+# ii) Structure and summary 
+str(employees) 
+summary(employees) 
+# iii) Extract columns 
+employees[, c("emp_name", "salary")] 
+# iv) Filter 
+subset(employees, salary <= 60000) 
+  </pre
+    >
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>

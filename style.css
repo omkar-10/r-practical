@@ -1,0 +1,31 @@
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: monospace;
+  margin: 20px;
+  font-size: 15px;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 3px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

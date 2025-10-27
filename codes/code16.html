@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code X</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+employee <- data.frame( 
+ID = 1:5,
+Name = c("Amit", "Neha", "Ravi", "Pooja", "Karan"), 
+Age = c(25, 28, 35, 30, 26), 
+Salary = c(50000, 55000, 60000, 52000, 48000) 
+) 
+print(employee) 
+summary(employee)
+  </pre
+    >
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>

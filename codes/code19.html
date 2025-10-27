@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code X</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+projects <- data.frame( 
+  ProjectId = 1:5, 
+  ProjectName = c("CRM Implementation", "Cloud Infrastructure", 
+"Network Upgrade",  
+                  "E-Commerce Platform", "Data Analytics"), 
+  Budget = c(120000, 180000, 60000, 220000, 90000), 
+  Status = c("In Progress", "Completed", "Not Started", "Completed", 
+"In Progress") 
+) 
+ 
+new_projects <- data.frame( 
+  ProjectId = c(6, 7), 
+  ProjectName = c("UX Research", "Cloud Integration"), 
+  Budget = c(160000, 190000), 
+  Status = c("Not Started", "Not Started") 
+) 
+ 
+final_projects <- rbind(projects, new_projects) 
+print(final_projects)
+  </pre
+    >
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>

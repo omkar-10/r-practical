@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code X</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+seq_20_50 <- seq(20, 50) 
+mean_20_60 <- mean(20:60) 
+sum_51_91 <- sum(51:91) 
+print(seq_20_50) 
+print(mean_20_60) 
+print(sum_51_91) 
+  </pre
+    >
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>

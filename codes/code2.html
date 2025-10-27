@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code 2</title>
+    <style>
+      body {
+        background: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+text1 <- "Ram has scored"
+text2 <- 89
+text3 <- "marks"
+text4 <- "in Mathematics"
+result <- paste(text1, text2, text3, text4)
+print(result)
+# Output: "Ram has scored 89 marks in Mathematics"
+</pre
+    >
+    <script>
+      window.onload = () => {
+        navigator.clipboard.writeText(
+          document.getElementById("code").innerText.trim()
+        );
+      };
+    </script>
+  </body>
+</html>

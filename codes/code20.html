@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code X</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #000;
+        font-family: monospace;
+        margin: 20px;
+        font-size: 15px;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="code">
+projects <- data.frame( 
+  ProjectId = 1:5, 
+  ProjectName = c("Website Redesign", "Mobile App Launch", "Data 
+Migration", "AI Development", "Cybersecurity Audit"), 
+  Budget = c(150000, 100000, 80000, 200000, 50000) 
+) 
+ 
+# ii) 
+str(projects) 
+summary(projects) 
+  </pre
+    >
+    <script>
+      window.onload = () => {
+        const code = document.getElementById("code").innerText.trim();
+        navigator.clipboard.writeText(code);
+      };
+    </script>
+  </body>
+</html>
